@@ -14,3 +14,18 @@ response_2 = get_response(refined_system_prompt, "Can you help me track my recen
 
 print("Response 1: ", response_1)
 print("Response 2: ", response_2)
+
+---
+client = OpenAI(api_key="<OPENAI_API_TOKEN>")
+
+# Define the system prompt
+system_prompt = f"""You are a customer service chatbot for MyPersonalDelivery whose service description is delimited by triple backticks. You should respond to user queries in a gentle way.
+ ```{service_description}```
+"""
+
+user_prompt = "What benefits does MyPersonalDelivery offer?"
+
+# Get the response to the user prompt
+response = get_response(system_prompt, user_prompt)
+
+print(response)
